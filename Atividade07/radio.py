@@ -12,7 +12,6 @@ class RadioFM:
         self.__antena_habilitada = False
 
     def ligar(self):
-        """Liga o rádio e inicializa os valores."""
         self.__ligado = True
         self.__antena_habilitada = True
         self.__volume = self.__volume_min
@@ -21,14 +20,12 @@ class RadioFM:
             self.__estacao_atual = self.__estacoes[self.__frequencia_atual]
 
     def desligar(self):
-        """Desliga o rádio e reseta os valores."""
         self.__ligado = False
         self.__volume = None
         self.__frequencia_atual = None
         self.__estacao_atual = None
 
     def aumentar_volume(self, incremento=1):
-        """Aumenta o volume em uma unidade ou no valor especificado."""
         if not self.__ligado:
             return "O rádio está desligado."
         novo_volume = self.__volume + incremento
@@ -38,7 +35,6 @@ class RadioFM:
             self.__volume = novo_volume
 
     def diminuir_volume(self, decremento=1):
-        """Diminui o volume em uma unidade ou no valor especificado."""
         if not self.__ligado:
             return "O rádio está desligado."
         novo_volume = self.__volume - decremento
@@ -48,7 +44,6 @@ class RadioFM:
             self.__volume = novo_volume
 
     def mudar_frequencia(self, frequencia=None):
-        """Altera a frequência do rádio."""
         if not self.__ligado:
             return "O rádio está desligado."
         if frequencia:
@@ -62,7 +57,6 @@ class RadioFM:
             self.__estacao_atual = self.__estacoes[self.__frequencia_atual]
 
     def status(self):
-        """Retorna o status do rádio."""
         return {
             "ligado": self.__ligado,
             "volume": self.__volume,
